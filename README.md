@@ -14,7 +14,7 @@ export const environment = {
 
 - Correr el proyecto "ng serve"
 
-
+https://i.postimg.cc/W4btXxnz/image.png
 
 
 

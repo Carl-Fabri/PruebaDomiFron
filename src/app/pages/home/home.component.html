@@ -1,0 +1,29 @@
+   <!-- Listado de películas -->
+
+   <section class="my-8 mx-6">
+    <h2 class="text-2xl font-bold mb-6 text-center ">Películas en cartelera</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+      <div *ngFor="let pelicula of filmsOnDisplay" class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover: hover:shadow-xl transition-shadow duration-300">
+        <div (click)="abrirModalFunciones(pelicula.id)">
+        <div class="flex flex-col rounded-xl overflow-hidden h-120 border dark:border-zinc-600" >
+          <img [src]="pelicula.imagenUrl || 'assets/default-movie.jpg'" class=" h-4/5 object-cover w-full  " alt="">
+          <div class="w-full bg-white dark:bg-zinc-800 dark:text-white px-3 py-4 flex flex-col border-t-2 border-t-red-600" >
+            <div class="flex flex-row justify-between">
+              <span class="capitalize  font-medium truncate">{{pelicula.titulo}}</span>
+              <div class="flex space-x-2 items-center text-xs flex-col">
+                  <span>Genero: {{pelicula.genero}}</span>
+                  <span>Duracion: {{pelicula.duracionMinutos || 'N/A'}} min</span>
+              </div>
+            </div>
+            <div class="flex flex-row justify-between mt-2" title="{{pelicula.sinopsis}}">
+              <p class="truncate text-sm text-gray-500 dark:text-gray-400">{{pelicula.sinopsis || ''}}</p>
+              <!-- <span class="text-sm text-gray-500 dark:text-gray-400">{{pelicula.calificacion || 'N/A'}}</span> -->
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+   </section>
+

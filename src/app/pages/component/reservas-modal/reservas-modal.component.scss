@@ -1,0 +1,292 @@
+.reserva-modal-container {
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+
+  .mat-mdc-dialog-title {
+    margin-bottom: 0;
+    padding-bottom: 16px;
+  }
+
+  .mat-mdc-dialog-content {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 0 24px;
+
+    // Espaciado para formularios
+    .mat-mdc-form-field {
+      width: 100%;
+
+      .mat-mdc-text-field-wrapper {
+        background-color: #ffffff;
+      }
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+
+      &.grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &.grid-cols-1 {
+        grid-template-columns: 1fr;
+      }
+
+      @media (max-width: 768px) {
+        &.md\:grid-cols-2 {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+
+    // Estilos para la tarjeta de información
+    .bg-gray-50 {
+      background-color: #f9fafb;
+    }
+
+    .border-l-4 {
+      border-left-width: 4px;
+    }
+
+    .border-red-600 {
+      border-color: #dc2626;
+    }
+
+    .text-red-700 {
+      color: #b91c1c;
+    }
+
+    .text-gray-700 {
+      color: #374151;
+    }
+  }
+
+  .mat-mdc-dialog-actions {
+    padding: 16px 24px;
+    border-top: 1px solid #e5e7eb;
+
+    .min-w-32 {
+      min-width: 8rem;
+    }
+  }
+
+  // Animación para el spinner
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  // Estilos responsive
+  @media (max-width: 768px) {
+    max-width: 95vw;
+    margin: 16px;
+
+    .mat-mdc-dialog-content {
+      padding: 0 16px;
+    }
+
+    .mat-mdc-dialog-actions {
+      padding: 16px;
+      flex-direction: column;
+      align-items: stretch;
+
+      button {
+        margin: 4px 0 !important;
+        width: 100%;
+      }
+    }
+  }
+
+  // Mejoras visuales adicionales
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
+  .my-6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pt-4 {
+    padding-top: 1rem;
+  }
+}
+
+// Estilos globales para snackbar
+::ng-deep {
+  .success-snackbar {
+    background-color: #10b981 !important;
+    color: white !important;
+  }
+
+  .error-snackbar {
+    background-color: #ef4444 !important;
+    color: white !important;
+  }
+}
+
+// Estilos específicos para la vista del ticket
+.ticket-view {
+  .ticket-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .ticket-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px !important;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+      pointer-events: none;
+    }
+  }
+
+  .ticket-header {
+    padding: 24px 24px 0 24px;
+    text-align: center;
+
+    .ticket-number {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 12px;
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  .ticket-divider {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    margin: 16px 24px !important;
+  }
+
+  .ticket-content {
+    padding: 0 24px 24px 24px;
+  }
+
+  .movie-info {
+    h3 {
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 16px;
+    }
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+
+    .info-icon {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-value {
+      font-weight: 600;
+      font-size: 13px;
+    }
+  }
+
+  .client-info {
+    h4 {
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .grid > div {
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .additional-info {
+    .border-green-500 {
+      border-color: #10b981;
+    }
+
+    .bg-green-50 {
+      background-color: #ecfdf5;
+    }
+
+    .text-green-600 {
+      color: #059669;
+    }
+
+    .text-green-800 {
+      color: #065f46;
+    }
+  }
+}
+
+// Gradiente para el ticket
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #dc2626, #991b1b);
+}
+
+// Responsive para la vista del ticket
+@media (max-width: 768px) {
+  .ticket-view {
+    .ticket-container {
+      max-width: 100%;
+      margin: 0;
+    }
+
+    .ticket-card {
+      margin: 0 8px;
+    }
+
+    .info-item {
+      .info-value {
+        font-size: 11px;
+      }
+    }
+
+    .grid.grid-cols-2 {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+}
